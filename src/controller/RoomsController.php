@@ -13,11 +13,13 @@ class RoomsController extends AbstractController
     {
         // 1. Récupérer le car par son id
         $room = $this->container->getRoomManager()->findOneById($id);
-        
+        $clients = $this->container->getClientManager()->findAll();
+
 
         //2. Afficher la room
         echo $this->container->getTwig()->render('rooms/show.html.twig', [
-            'room' => $room,
+            'room'   => $room,
+            'clients' => $clients
         ]);
     }
 
@@ -42,6 +44,10 @@ class RoomsController extends AbstractController
     {
         $this->container->getRoomManager()->delete($id);
         header('Location: ' . $this->configuration['env']['base_path']);
+    }
 
+    public function update(int $id, array $data)
+    {
+        $this->container->getRoomManager()->update($id, $data);
     }
 }

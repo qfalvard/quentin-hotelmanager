@@ -58,7 +58,15 @@ Gestionnaire d'hôtels Hb-HotelManager
                         <span class="badge badge-warning">Réservée</span>
                     </td>
                     {% endif %}
-                    <td></td>
+                    <td>
+                        {% if room.clientId != null %}
+                        {% for client in clients %}
+                        {% if room.clientId == client.id %}
+                        ok
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </td>
                     <td>2020/03/20</td>
                     <td>
                         <a class="btn btn-primary btn-sm" href="{{env.base_path ~ '/rooms/' ~ room.id}}">
@@ -68,53 +76,53 @@ Gestionnaire d'hôtels Hb-HotelManager
                 </tr>
                 {% endfor %}
                 <tr>
-                        <td>102</td>
-                        <td>
-                            <span class="badge badge-warning">Réservée</span>
-                        </td>
-                        <td>
-                            <span class="badge badge-success">Libre</span>
-                        </td>
-                        <td>test</td>
-                        <td>2020/03/20</td>
-                        <td>
-                            <a class="btn btn-primary btn-sm" href="">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>102</td>
-                        <td>
-                            <span class="badge badge-warning">Réservée</span>
-                        </td>
-                        <td>
-                            <span class="badge badge-danger">Occupée</span>
-                        </td>
-                        <td>2020/04/03</td>
-                        <td></td>
-                        <td>
-                            <a class="btn btn-primary btn-sm" href="">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>102</td>
-                        <td>
-                            <span class="badge badge-secondary">Non réservée</span>
-                        </td>
-                        <td>
-                            <span class="badge badge-success">Libre</span>
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <a class="btn btn-primary btn-sm" href="">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
+                    <td>102</td>
+                    <td>
+                        <span class="badge badge-warning">Réservée</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-success">Libre</span>
+                    </td>
+                    <td>test</td>
+                    <td>2020/03/20</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>
+                        <span class="badge badge-warning">Réservée</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-danger">Occupée</span>
+                    </td>
+                    <td>2020/04/03</td>
+                    <td></td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>
+                        <span class="badge badge-secondary">Non réservée</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-success">Libre</span>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
             </tbody>
         </table>
 

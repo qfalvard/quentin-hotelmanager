@@ -23,7 +23,7 @@ Gestionnaire d'hôtels Hb-HotelManager
                 <label for="formClient">Ajouter un client</label>
                 <select name="clientId" id="formClient" class="form-control">
                     {% for client in clients %}
-                    <option value="">{{client.firstname}}</option>
+                    <option value="">{{client.firstname}} {{client.lastname}}</option>
                     {% endfor %}
                 </select>
             </div>
