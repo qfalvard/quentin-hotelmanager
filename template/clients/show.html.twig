@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Détail du client
+{% endblock %}
+
+{% block content %}
+<a href="{{ env.base_path ~ '/clients' }}">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i> retour à la liste
+</a>
+<!-- CAS 1 : La chambre est innoccupée -->
+<div class="card mb-3">
+    <div class="card-header">
+        <strong>Gestion du client</strong>
+    </div>
+    <div class="card-body">
+
+        <h2> {{client.firstname}} {{client.lastname}} </h2>
+        <ul>
+            <li>Date d'arrivée : {{client.entryDate}}</li>
+            <li>Date de départ : {{client.departureDate}}</li>
+        </ul>
+        <br>
+        <a class="btn btn-warning" href="{{env.base_path}}/clients/{{client.id}}/showedit" method="UPDATE">Edit</a>
+
+        <button class="btn btn-primary">Ajouter le client à la chambre</button>
+    </div>
+</div>
+
+{% endblock %}

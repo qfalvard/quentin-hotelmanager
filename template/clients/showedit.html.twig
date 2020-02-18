@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Edition client
+{% endblock title %}
+
+{% block content %}
+<form action="{{env.base_path}}/clients/edit" method="update">
+    <div class="form-group">
+        <label for="exampleFormControlInput1">firstname</label>
+        <input name="firstname" type="text" class="form-control" value="{{client.firstname}}" id="exampleFormControlInput1">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">lastname</label>
+        <input name="lastname" type="text" class="form-control" value="{{client.lastname}}" id="exampleFormControlInput1">
+    </div>
+
+    <div class="form-group">
+        <label for="entry_date">Entry date</label>
+        <input class="form-control" type="date" name="entry_date" value="{{client.entryDate}}" id="entry_date">
+    </div>
+    <div class="form-group">
+        <label for="departure_date">Departure date</label>
+        <input class="form-control" type="date" name="departureDate" value="{{client.departureDate}}" id="departure_date">
+    </div>
+    <input type="submit" value="Editer" class="btn btn-info">
+</form>
+{% endblock content %}

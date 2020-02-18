@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Gestion clientèle
+{% endblock title %}
+
+
+{% block content %}
+
+<ul class="row">
+    {% for client in clients %}
+    <div class="col-4 text-justify">
+        <li class="btn text-justify border m-2">
+            Firstname : {{client.firstname}} <br>
+            Lastname : {{client.lastname}} <br>
+            Entry date : {{client.entryDate}} <br>
+            Departure date : {{client.departureDate}} <br>
+            </a>
+            <a class="btn btn-info" <a href="{{env.base_path}}/clients/{{client.id}}">show</a>
+            <a class="btn btn-danger" href="{{env.base_path}}/clients/{{client.id}}/delete">delete</a>
+            <a class="btn btn-warning" href="{{env.base_path}}/clients/{{client.id}}/showedit">Edit</a>
+        </li>
+    </div>
+    {% endfor %}
+</ul>
+<div>
+    <a class="btn btn-info" href="{{env.base_path}}/clients/new" method="POST">Nouveau client</a>
+</div>
+{% endblock content %}

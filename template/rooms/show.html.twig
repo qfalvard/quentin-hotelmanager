@@ -15,15 +15,16 @@ Gestionnaire d'hôtels Hb-HotelManager
     <div class="card-header">
         <strong>Gestion de la chambre # {{room.number}}</strong> <span class="badge badge-success">Libre</span>
     </div>
-    <div class="card-body"> 
+    <div class="card-body">
 
-        <form action="">
+        <form action="{{env.base_path}}/rooms/" method="POST">
 
             <div class="form-group">
                 <label for="formClient">Ajouter un client</label>
-                <select name="" id="formClient" class="form-control">
-                    <option value="">Emma Watson</option>
-                    <option value="">John Doe</option>
+                <select name="clientId" id="formClient" class="form-control">
+                    {% for client in clients %}
+                    <option value="">{{client.firstname}}</option>
+                    {% endfor %}
                 </select>
             </div>
 
@@ -32,13 +33,13 @@ Gestionnaire d'hôtels Hb-HotelManager
         </form>
     </div>
     <div class="card-footer">
-        <a href="#" class="btn btn-danger">
+        <a href="{{env.base_path}}/rooms/{{room.id}}/delete" class="btn btn-danger">
             <i class="fa fa-trash" aria-hidden="true"></i> Supprimer la chambre
         </a>
     </div>
 </div>
 
-
+{# 
 <!-- CAS 2 : La chambre est occupée -->
 
 <div class="card">
@@ -55,5 +56,5 @@ Gestionnaire d'hôtels Hb-HotelManager
             <i class="fa fa-trash" aria-hidden="true"></i> Supprimer la chambre
         </a>
     </div>
-</div>
+</div> #}
 {% endblock %}
