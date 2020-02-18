@@ -1,10 +1,12 @@
 <?php
+
 namespace App\Service;
 
 use App\Model\Room;
 use PDO;
 
-class RoomManager extends AbstractManager implements ManagerInterface {
+class RoomManager extends AbstractManager implements ManagerInterface
+{
 
     private $pdo;
 
@@ -41,7 +43,7 @@ class RoomManager extends AbstractManager implements ManagerInterface {
 
         $rooms = [];
 
-        foreach($data as $d) {
+        foreach ($data as $d) {
             $rooms[] = $this->arrayToObject($d);
         }
 
@@ -77,7 +79,8 @@ class RoomManager extends AbstractManager implements ManagerInterface {
     /**
      * @param array $data
      */
-    public function create(array $data) {
+    public function create(array $data)
+    {
         $query = "INSERT INTO room(number) VALUES(:number)";
 
         $statement = $this->pdo->prepare($query);
@@ -99,10 +102,10 @@ class RoomManager extends AbstractManager implements ManagerInterface {
             'number' => $data['number'],
             'client_id'  => $data['client_id']
         ]);
-
     }
 
-    public function delete(int $id) {
+    public function delete(int $id)
+    {
         $query = "DELETE FROM room WHERE id = :id";
 
         $statement = $this->pdo->prepare($query);

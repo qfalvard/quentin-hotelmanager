@@ -59,25 +59,26 @@ Gestionnaire d'hôtels Hb-HotelManager
                     </td>
                     {% endif %}
                     <td>
-                        {{room.client.entryDate}}
                         {% if room.client.entryDate < date()|date('Y-m-d') %}
+                        Occupé
                         {% endif %}
                     </td>
                     <td>
                         {% if room.clientId != null %}
-                        {% for client in clients %}
-                        {% if room.clientId == client.id %}
-                        {{client.departureDate}}
-                        {% endif %}
-                        {% endfor %}
+                            {% for client in clients %}
+                                {% if room.clientId == client.id %}
+                                    {{client.departureDate}}
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
                     </td>
-                    <td>{% if room.clientId != null %}
-                        {% for client in clients %}
-                        {% if room.clientId == client.id %}
-                        {{client.entryDate}}
-                        {% endif %}
-                        {% endfor %}
+                    <td>
+                        {% if room.clientId != null %}
+                            {% for client in clients %}
+                                {% if room.clientId == client.id %}
+                                    {{client.entryDate}}
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}</td>
                     <td>
                         <a class="btn btn-primary btn-sm" href="{{env.base_path ~ '/rooms/' ~ room.id}}">
@@ -86,7 +87,7 @@ Gestionnaire d'hôtels Hb-HotelManager
                     </td>
                 </tr>
                 {% endfor %}
-                
+
             </tbody>
         </table>
 

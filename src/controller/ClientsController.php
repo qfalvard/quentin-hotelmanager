@@ -65,5 +65,4 @@ class ClientsController extends AbstractController
         $client = $this->container->getClientManager()->edit($id, $data);
         header('Location: ' . $this->configuration['env']['base_path'] . '/clients/');
     }
-
 }

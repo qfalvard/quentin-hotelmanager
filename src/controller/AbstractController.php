@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
-abstract class AbstractController {
+abstract class AbstractController
+{
 
     protected $container;
     protected $configuration;
 
-    public function __construct() {
+    public function __construct()
+    {
         global $container;
         global $configuration;
         $this->container = $container;
