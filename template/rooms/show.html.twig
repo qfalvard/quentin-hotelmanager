@@ -7,7 +7,7 @@ Gestionnaire d'hôtels Hb-HotelManager
 {% block content %}
 
 
-<a href="">
+<a href="{{env.base_path}}">
     <i class="fa fa-arrow-left" aria-hidden="true"></i> retour à la liste
 </a>
 <!-- CAS 1 : La chambre est innoccupée -->
@@ -28,7 +28,9 @@ Gestionnaire d'hôtels Hb-HotelManager
                 </select>
             </div>
 
-            <button class="btn btn-primary">Ajouter le client à la chambre</button>
+            <form action="{{env.base_path}}/rooms/{{room.id}}/update" method="post">
+                <button class="btn btn-primary">Ajouter le client à la chambre</button>
+            </form>
 
         </form>
     </div>

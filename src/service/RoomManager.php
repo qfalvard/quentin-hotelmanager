@@ -24,8 +24,6 @@ class RoomManager extends AbstractManager implements ManagerInterface {
         $room->setId($array['id']);
         $room->setNumber($array['number']);
         $room->setClientId($array['client_id']);
-        
-        // $room->setClient(); // à faire
 
         return $room;
     }
