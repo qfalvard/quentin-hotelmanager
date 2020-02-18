@@ -13,7 +13,16 @@ Gestionnaire d'hôtels Hb-HotelManager
 <!-- CAS 1 : La chambre est innoccupée -->
 <div class="card mb-3">
     <div class="card-header">
-        <strong>Gestion de la chambre # {{room.number}}</strong> <span class="badge badge-success">Libre</span>
+        <strong>Gestion de la chambre # {{room.number}}</strong>
+        {% if room.clientId == null %}
+            <td>
+                <span class="badge badge-success">Libre</span>
+            </td>
+        {% else %}
+            <td>
+                <span class="badge badge-warning">Réservée</span>
+            </td>
+        {% endif %}
     </div>
     <div class="card-body">
 
